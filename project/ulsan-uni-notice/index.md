@@ -1,7 +1,7 @@
 ---
 layout: post
 author: "Suwan Jang"
-title:  "울산대 공지 모음"
+title: "울산대 공지 모음"
 subtitle: "흩어져 있는 울산대 공지사항을 모아서 보여준다."
 type: "Application"
 projects: true
@@ -26,13 +26,19 @@ order: 2
 울산대학교 학생들은 공지사항을 보기에 불편함이 많다.
 대학교 홈페이지 공지사항, 학생포털(Uwins) 공지사항, 문수게시판 등 각각의 웹에 접속하여 공지사항을 확인 해야한다.
 
+<br/>
+
 ## 해결(Solution)
 
 학생들이 찾는 웹의 공지사항들을 크롤링하여 하나의 어플리케이션에 보여줌으로써 웹에 들어가서 확인해야 하는 불편함을 해소한다.
 
+<br/>
+
 ## 추가(Additional)
 
 게시글을 추천할 수 있는 기능과 댓글을 작성할 수 있게끔 게시판을 만들어 더 정확한 정보를 제공받고자 한다.
+
+<br/><br/><br/>
 
 # Version 1
 
@@ -64,12 +70,12 @@ order: 2
 
 #### 구현 방법 Request & Response
 
-Application 에서 Resquest 를 보내면 서버에서 결과를 처리한 뒤 Response 해주는 방법이다. Application 의 구현은 React Native 를 이용했고 Server 의 구현은 Python 의 Flask FrameWork 를 사용했다.   
+Application 에서 Resquest 를 보내면 서버에서 결과를 처리한 뒤 Response 해주는 방법이다. Application 의 구현은 React Native 를 이용했고 Server 의 구현은 Python 의 Flask FrameWork 를 사용했다.  
 결과적으로 서버는 AWS 서버에서 구현된다.
 
 ![How_to](./image/How_to.png)
 
-
+<br/><br/>
 
 ## Server
 
@@ -163,6 +169,8 @@ if __name__ == '__main__':
     app.run(debug=True, host='192.168.0.8', threaded=True)
 ```
 
+<br/><br/>
+
 _ulsan.py_
 
 > Use BeautifulSoup for html-parse  
@@ -199,17 +207,22 @@ def crawler():
 
 > 이를 이해하기 위해선 홈페이지의 구조를 볼 필요가 있다.
 
+<br/>
 크롬 개발자 도구(F12)를 통해 페이지를 구조를 살펴본다.
 
 ![Notice](/image/Notice_img.png)
 
+<br/>
 Tbody 태그는 tr 태그 10개로 구성되어 있다.
 
 ![Tbody](/image/tbody_img.png)
 
+<br/>
 또 하나의 tr 태그는 td 태그로 이루어져 있으며 class 이름으로 title 이라고 설정되어 있다.
 
 ![td-title](/image/td-title_img.png)
+
+<br/><br/>
 
 사실 Title 속성을 받아오는 방법은 정말 여러가지가 있지만 2가지만 알아보려 한다.
 
@@ -222,6 +235,8 @@ for div in soup.select('tbody'):
         l[0].append(title)
 ```
 
+<br/>
+
 2. findAll 메소드를 활용
 
 ```python
@@ -233,8 +248,10 @@ for div in soup.findAll('tbody'):
 
 두가지 방법은 받아오는 정보가 차이가 있어 정보를 처리하는 방법 또한 조금 다르다.
 
-3. Url 받아오는 방법  
-   Url 은 \<a> 태그 안에 href 속성으로 있으므로 get 메소드를 통해 접근해야 한다.
+> Url 받아오는 방법  
+>  Url 은 \<a> 태그 안에 href 속성으로 있으므로 get 메소드를 통해 접근해야 한다.
+
+<br/><br/>
 
 ---
 
@@ -244,8 +261,8 @@ for div in soup.findAll('tbody'):
 
 속성 값을 받아오는 방법이다.
 
-| title    | date    | url    | count    |
-| -------- | ------- | ------ | -------- |
+| title    | date    | url          | count    |
+| -------- | ------- | ------------ | -------- |
 | td.title | td.date | \<a> -> href | td.count |
 
 최종적으로 리스트를 반환한다.
@@ -278,6 +295,7 @@ def crawler():
     return l
 ```
 
+<br/><br/>
 
 ### 결과값 리턴하기
 
@@ -295,81 +313,76 @@ def crawler():
         return jsonify(ulsan.crawler())
 ```
 
+<br/>
+
 여기서 아래를 주목하자.
 
-``` python
+```python
 return jsonify(ulsan.crawler())
 ```
-위의 *ulsan.py* 파일에서 List 를 반환받았다.  
+
+위의 _ulsan.py_ 파일에서 List 를 반환받았다.
 
 리스트를 다른 코드에서 쉽게 접근하기 위해 json 형태로 반환하여 return 한다.
 
 <br/><br/><br/>
-결과적으로 
+결과적으로
 
 ## Request
-``` json
+
+```json
 {
-	"check": "ulsan"
+  "check": "ulsan"
 }
 ```
+
 ## Response
-``` json
+
+```json
 [
-    [
-        " 2020-1학기 마이크로특화전공(10개 전공) 신청 안내",
-        "[캠퍼스 리크루팅]한샘 채용설명회",
-        "외국인 유학생 지원 동아리 HOW.U 8기 모집",
-        "(현재 진행중!)2020년도 상반기 공채대비 입사서류 1:1 컨설팅",
-        "(선거연수원)2020년 상반기 선거·정치제도 개선을 위한 논문 공모 안내",
-        "[창업지원단] 제3회 U2A 창업경진대회",
-        "[모집] 2019-겨울학기 UOU 스터디그룹 모집 안내",
-        "★방학 마지막 소규모 직무분석 프로그램 ★  참여자 모집",
-        "LINC+사업단 계약직원 채용",
-        "산학국책지원팀 계약직원 채용"
-    ],
-    [
-        "2019.12.31",
-        "2020.01.10",
-        "2020.01.10",
-        "2020.01.10",
-        "2020.01.10",
-        "2020.01.09",
-        "2020.01.09",
-        "2020.01.08",
-        "2020.01.08",
-        "2020.01.07"
-    ],
-    [
-        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20194&pageNo=1",
-        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20219&pageNo=1",
-        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20218&pageNo=1",
-        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20217&pageNo=1",
-        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20216&pageNo=1",
-        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20215&pageNo=1",
-        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20214&pageNo=1",
-        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20212&pageNo=1",
-        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20211&pageNo=1",
-        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20210&pageNo=1"
-    ],
-    [
-        "7,280",
-        "97",
-        "227",
-        "198",
-        "90",
-        "130",
-        "162",
-        "195",
-        "383",
-        "342"
-    ]
+  [
+    " 2020-1학기 마이크로특화전공(10개 전공) 신청 안내",
+    "[캠퍼스 리크루팅]한샘 채용설명회",
+    "외국인 유학생 지원 동아리 HOW.U 8기 모집",
+    "(현재 진행중!)2020년도 상반기 공채대비 입사서류 1:1 컨설팅",
+    "(선거연수원)2020년 상반기 선거·정치제도 개선을 위한 논문 공모 안내",
+    "[창업지원단] 제3회 U2A 창업경진대회",
+    "[모집] 2019-겨울학기 UOU 스터디그룹 모집 안내",
+    "★방학 마지막 소규모 직무분석 프로그램 ★  참여자 모집",
+    "LINC+사업단 계약직원 채용",
+    "산학국책지원팀 계약직원 채용"
+  ],
+  [
+    "2019.12.31",
+    "2020.01.10",
+    "2020.01.10",
+    "2020.01.10",
+    "2020.01.10",
+    "2020.01.09",
+    "2020.01.09",
+    "2020.01.08",
+    "2020.01.08",
+    "2020.01.07"
+  ],
+  [
+    "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20194&pageNo=1",
+    "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20219&pageNo=1",
+    "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20218&pageNo=1",
+    "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20217&pageNo=1",
+    "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20216&pageNo=1",
+    "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20215&pageNo=1",
+    "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20214&pageNo=1",
+    "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20212&pageNo=1",
+    "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20211&pageNo=1",
+    "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&a_no=20210&pageNo=1"
+  ],
+  ["7,280", "97", "227", "198", "90", "130", "162", "195", "383", "342"]
 ]
 ```
-<br/><br/>
+
+<br/><br/><br/>
 
 ---
-
 
 ## Application
 
@@ -377,35 +390,42 @@ return jsonify(ulsan.crawler())
 
 먼저 결과물 사진을 보자
 
-
-| 1. 시작화면 | 2. Picker 클릭 | 3. 불러오기 클릭 | 4. 공지사항 클릭 |
-| --- | --- | --- | --- |
-| <img src='image/App_1.jpg'  > | <img src='image/App_4.jpg'  > | <img src='image/App_2.jpg'  > | <img src='image/App_3.jpg'  > | 
-
+| 1. 시작화면                   | 2. Picker 클릭                | 3. 불러오기 클릭              | 4. 공지사항 클릭              |
+| ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |
+| <img src='image/App_1.jpg'  > | <img src='image/App_4.jpg'  > | <img src='image/App_2.jpg'  > | <img src='image/App_3.jpg'  > |
 
 > 직접 UI 를 해본 것이 처음이라 Layout 을 관리함에 있어서도 어려움이 많았다.
 
+<br/>
+
 예를들어 3번째 불러오기 클릭 버튼 시 나오는 화면의 코드를 간단히 가져와 보겠다.
 
-``` javascript
+```javascript
 <Text style={styles.item}>{subject[i]}</Text>
 <View style={styles.row}>
     <Text style={styles.b_count}>     조회수: {count[i]}          </Text>
-    <Text style={styles.b_date}>게시일자: {date[i]}</Text>          
+    <Text style={styles.b_date}>게시일자: {date[i]}</Text>
 </View>
 ```
 
-조회수 앞에서 보이는 띄어쓰기는 
-``` javscript
+<br/>
+
+조회수 앞에서 보이는 띄어쓰기는
+
+```javscript
 &nbsp;
 ```
+
 를 통해 구현해도 되지만 Layout 을 잘 조절한다면 충분히 해결할 수 있는 문제이다.  
-또 태블릿 PC 같은 환경에서도 쉽게 적용이 되게 하려면 Layout 구성을 함으로 써 배치를 하는 것이 이상적이다. 
+또 태블릿 PC 같은 환경에서도 쉽게 적용이 되게 하려면 Layout 구성을 함으로 써 배치를 하는 것이 이상적이다.
+
+<br/><br/>
 
 ### 주요 코드
+
 아래는 공지사항 불러오기 버튼을 클릭했을 때 실행되는 메소드이다.
 
-디폴트 값을 설정해 주지 않으면 오류가 났던 것으로 기억한다. 
+디폴트 값을 설정해 주지 않으면 오류가 났던 것으로 기억한다.
 
 Picker 를 통해 받아온 value 값을 check 인자로 Post 방식을 통해 Request 한다.
 
@@ -413,7 +433,7 @@ Picker 를 통해 받아온 value 값을 check 인자로 Post 방식을 통해 R
 
 json 파일을 해석하는 부분이 then(response) 이다.
 
-``` javascript
+```javascript
   onRequestButtonClicked(value){
     if(value == null){
       value = 'ulsan';
@@ -435,7 +455,6 @@ json 파일을 해석하는 부분이 then(response) 이다.
 ![play_store](/image/play_1.png)
 
 ![play_store](/image/play_2.png)
-
 
 <br/><br/><br/>
 
