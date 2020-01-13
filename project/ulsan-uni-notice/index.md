@@ -4,7 +4,7 @@ author: "Suwan Jang"
 title: "울산대 공지 모음"
 subtitle: "흩어져 있는 울산대 공지사항을 모아서 보여준다."
 type: "Application"
-projects: true
+projects: false
 text: true
 ridi: true
 portfolio: true
