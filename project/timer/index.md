@@ -4,7 +4,7 @@ author: "Suwan Jang"
 title:  "시간관리 어플리케이션"
 subtitle: "내 시간에 효율을 더 올려보자."
 type: "Application"
-projects: false
+projects: true
 text: true
 ridi: true
 portfolio: true
