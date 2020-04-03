@@ -1,0 +1,64 @@
+I"�
+<h1 id="홈페이지-이전하기">홈페이지 이전하기</h1>
+<p><a href="http://abeo401.com">Abeo</a></p>
+
+<h2 id="카테고리">카테고리</h2>
+<ol>
+  <li>Home - Posts</li>
+  <li>About - About abeo company</li>
+  <li>Contact - Contact to abeo</li>
+</ol>
+
+<p><img src="./images/category.png" alt="category" width="600" /></p>
+
+<h3 id="post-형식">Post 형식</h3>
+<h5 id="마크다운">마크다운</h5>
+<blockquote>
+
+  <p>마크다운은 일반 텍스트 문서의 양식을 편집하는 문법이다. README 파일이나 온라인 문서, 혹은 일반 텍스트 편집기로 문서 양식을 편집할 때 쓰인다. 마크다운을 이용해 작성된 문서는 쉽게 HTML 등 다른 문서형태로 변환이 가능하다.</p>
+</blockquote>
+
+<h3 id="example">Example</h3>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="na">title</span><span class="pi">:</span>  <span class="s2">"</span><span class="s">3D</span><span class="nv"> </span><span class="s">scanner</span><span class="nv"> </span><span class="s">(AbeoScan</span><span class="nv"> </span><span class="s">4500)"</span>
+<span class="na">date</span><span class="pi">:</span>   <span class="s">2020-03-16</span>
+<span class="nn">---</span>
+
+
+<span class="nt">&lt;p&gt;</span>-Specifications of AbeoScan 4500:<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/assets/img/7.jpg"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span> 
+ 
+
+ 1) Performance
+<span class="p">   -</span> Measurement  speed: Within 1 sec (Based on 1 shot)
+<span class="p">   -</span> Measurement accuracy: 0.02 mm (based on 300mm distance)
+
+ 2) Features
+<span class="p">   -</span> Camera resolution: 2048 x 1536 at 118 FPS (3.2 Mp)
+<span class="p">   -</span> Light source: RGB LED beam projector (912x1140 pixel high speed pattern generator)
+<span class="p">   -</span> 3D scanning principle: structured light triangulation, phase-shift algorithm
+<span class="p">   -</span> Data extension: PLY file (Point cloud data), STL file (3D printer standard file)
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="contact">Contact</h3>
+
+<p><img src="./images/contact.png" alt="contact" width="600" /></p>
+
+<p>Send 클릭 시</p>
+
+<p><img src="./images/contact_email.png" alt="contact" width="600" /></p>
+
+<hr />
+
+<h2 id="github-domain">Github Domain</h2>
+
+<p><a href="http://abeo401.github.io">Abeo.github.io</a></p>
+
+<p><img src="./images/domain.png" alt="domain" width="600" /></p>
+
+<p><a href="http://abeo401.com">Abeo_com</a></p>
+:ET
