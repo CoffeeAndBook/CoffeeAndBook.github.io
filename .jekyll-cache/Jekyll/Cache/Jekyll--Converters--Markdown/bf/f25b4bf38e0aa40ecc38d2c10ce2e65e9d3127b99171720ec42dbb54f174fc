@@ -1,0 +1,147 @@
+I")<div class="catalogue">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <li class="catalogue-item">
+    <a href="/blog/Study/2020-01-13-raspberry_4">
+        
+        
+        <p class="catalogue-type">
+            Study
+        </p>
+        <div class="catalogue-info transition">
+            <h1 class="catalogue-title">
+                라즈베리파이 시작하기 4
+            </h1>
+            <p class="catalogue-sub">
+                스마트미러 시작하기
+            </p>
+            <p class="catalogue-body">
+                3편에서 VNC Enable 하고 Viewer 를 통해 라즈베리파이 화면을 컴퓨터에서 보았다. 지금부터의 진행은 VNC 에서 진행하겠다. 스마트미러 설치 스마트미러를 만드는 개발자들이 모인 포럼이...
+            </p>
+        </div>
+    </a>
+</li>    
+
+
+
+
+
+     <li class="catalogue-item">
+    <a href="/blog/Study/2020-01-13-raspberry_3">
+        
+        
+        <p class="catalogue-type">
+            Study
+        </p>
+        <div class="catalogue-info transition">
+            <h1 class="catalogue-title">
+                라즈베리파이 시작하기 3
+            </h1>
+            <p class="catalogue-sub">
+                VNC 통신하기
+            </p>
+            <p class="catalogue-body">
+                앞선 2편에서 컴퓨터와 라즈베리파이를 SSH 연결하여 컴퓨터에서 명령어를 입력했고 그 명령어를 라즈베리파이에서 실행되는 걸 보았다. VNC VNC도 정의가 뭔지 한번 검색해보자.  VNC(Virtual...
+            </p>
+        </div>
+    </a>
+</li>    
+
+
+
+
+
+     <li class="catalogue-item">
+    <a href="/blog/Study/2020-01-13-raspberry_2">
+        
+        
+        <p class="catalogue-type">
+            Study
+        </p>
+        <div class="catalogue-info transition">
+            <h1 class="catalogue-title">
+                라즈베리파이 시작하기 2
+            </h1>
+            <p class="catalogue-sub">
+                SSH 통신하기
+            </p>
+            <p class="catalogue-body">
+                앞선 1편에서 라즈베리파이에 대한 간단한 설명과 라즈비안 설치를 진행해 보았다. 이제 LAN 케이블을 연결한 뒤 전원을 연결하자.  여기서 LAN 연결을 해주는 건 공유기의...
+            </p>
+        </div>
+    </a>
+</li>    
+
+
+
+
+
+     <li class="catalogue-item">
+    <a href="/blog/Study/2020-01-13-raspberry_1">
+        
+        
+        <p class="catalogue-type">
+            Study
+        </p>
+        <div class="catalogue-info transition">
+            <h1 class="catalogue-title">
+                라즈베리파이 시작하기 1
+            </h1>
+            <p class="catalogue-sub">
+                초기셋팅
+            </p>
+            <p class="catalogue-body">
+                라즈베리파이  라즈베리파이는 위키백과에 명시되어 있다. 싱글보드 컴퓨터 이다.  우리가 아는 컴퓨터는 다음과 같이 생겼다.  그런데 라즈베리파이는 다음과...
+            </p>
+        </div>
+    </a>
+</li>    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+:ET

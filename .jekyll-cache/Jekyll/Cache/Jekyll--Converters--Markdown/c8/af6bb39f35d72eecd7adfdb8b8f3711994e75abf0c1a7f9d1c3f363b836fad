@@ -1,0 +1,18 @@
+I"<h1 id="1-todolist">1. TodoList</h1>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Read Book (30 min)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />English (30 min)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Work out (30 min)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Notice Project (1 hour)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Prepare coding test(30 min)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Calling to mommy</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Drinking water 2L</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Timer Project (1 hour) <em>1hour 30min</em></li>
+</ul>
+
+<h1 id="2-time-planning">2. Time Planning</h1>
+
+<p>17:30 ~ 18:30 Timer Project</p>
+
+<p>18:30 ~ 19:00 Read Book</p>
+:ET

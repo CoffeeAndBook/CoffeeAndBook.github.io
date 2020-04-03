@@ -1,0 +1,500 @@
+I"��<h1 id="울산대-공지요ulsan-uni-notice-board">울산대 공지요(Ulsan Uni, Notice Board)</h1>
+
+<h2 id="필요성why">필요성(Why)</h2>
+
+<p>울산대학교 학생들은 공지사항을 보기에 불편함이 많다.
+대학교 홈페이지 공지사항, 학생포털(Uwins) 공지사항, 문수게시판 등 각각의 웹에 접속하여 공지사항을 확인 해야한다.</p>
+
+<p><br /></p>
+
+<h2 id="해결solution">해결(Solution)</h2>
+
+<p>학생들이 찾는 웹의 공지사항들을 크롤링하여 하나의 어플리케이션에 보여줌으로써 웹에 들어가서 확인해야 하는 불편함을 해소한다.</p>
+
+<p><br /></p>
+
+<h2 id="추가additional">추가(Additional)</h2>
+
+<p>게시글을 추천할 수 있는 기능과 댓글을 작성할 수 있게끔 게시판을 만들어 더 정확한 정보를 제공받고자 한다.</p>
+
+<p><br /><br /><br /></p>
+
+<h1 id="version-1">Version 1</h1>
+
+<h2 id="기능work">기능(Work)</h2>
+
+<h3 id="공지사항-불러오기load-notice">공지사항 불러오기(Load Notice)</h3>
+
+<p>구현한 사이트</p>
+
+<ol>
+  <li>
+    <p><a href="http://www.ulsan.ac.kr/unews/news/notice.aspx?o=L">울산대 홈페이지</a></p>
+  </li>
+  <li>
+    <p><a href="https://uwins.ulsan.ac.kr/JBGJ/A/MIA01S.aspx?MenuID=MIA01S!1">유윈스 홈페이지</a></p>
+  </li>
+  <li>
+    <p><a href="http://ee.ulsan.ac.kr/boardCnts/list.do?boardID=1262&amp;m=04&amp;s=ee">전기과 홈페이지</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.ulsan.ac.kr/utopia/romantic/free/free.aspx?o=L">문수 게시판</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.ulsan.ac.kr/utopia/info/voluntary/voluntary.aspx?o=L">문수 봉사</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.ulsan.ac.kr/utopia/info/arbeit/arbeit.aspx?o=L">문수 알바</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.ulsan.ac.kr/utopia/info/room/room.aspx?o=L">문수 복덕방</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.ulsan.ac.kr/utopia/info/barter/barter.aspx?o=L">문수 장터</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.ulsan.ac.kr/utopia/info/barter/barter.aspx?o=L">문수 분실물</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.ulsan.ac.kr/utopia/info/barter/barter.aspx?o=L">문수 스터디</a></p>
+  </li>
+</ol>
+
+<h4 id="구현-방법-request--response">구현 방법 Request &amp; Response</h4>
+
+<p>Application 에서 Resquest 를 보내면 서버에서 결과를 처리한 뒤 Response 해주는 방법이다. Application 의 구현은 React Native 를 이용했고 Server 의 구현은 Python 의 Flask FrameWork 를 사용했다.<br />
+결과적으로 서버는 AWS 서버에서 구현된다.</p>
+
+<p><img src="./image/How_to.png" alt="How_to" /></p>
+
+<p><br /><br /></p>
+
+<h2 id="server">Server</h2>
+
+<h5 id="request">Request</h5>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+	"check": "ulsan"
+}
+</code></pre></div></div>
+
+<h5 id="response">Response</h5>
+
+<blockquote>
+  <p>Return (Title, Date, Url, Views)</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+    [
+        " 2020-1학기 마이크로특화전공(10개 전공) 신청 안내",
+        "[캠퍼스 리크루팅]한샘 채용설명회",
+        "외국인 유학생 지원 동아리 HOW.U 8기 모집",
+        "(현재 진행중!)2020년도 상반기 공채대비 입사서류 1:1 컨설팅",
+        "(선거연수원)2020년 상반기 선거·정치제도 개선을 위한 논문 공모 안내",
+        "[창업지원단] 제3회 U2A 창업경진대회",
+        "[모집] 2019-겨울학기 UOU 스터디그룹 모집 안내",
+        "★방학 마지막 소규모 직무분석 프로그램 ★  참여자 모집",
+        "LINC+사업단 계약직원 채용",
+        "산학국책지원팀 계약직원 채용"
+    ],
+    [
+        "2019.12.31",
+        "2020.01.10",
+        "2020.01.10",
+        "2020.01.10",
+        "2020.01.10",
+        "2020.01.09",
+        "2020.01.09",
+        "2020.01.08",
+        "2020.01.08",
+        "2020.01.07"
+    ],
+    [
+        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20194&amp;pageNo=1",
+        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20219&amp;pageNo=1",
+        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20218&amp;pageNo=1",
+        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20217&amp;pageNo=1",
+        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20216&amp;pageNo=1",
+        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20215&amp;pageNo=1",
+        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20214&amp;pageNo=1",
+        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20212&amp;pageNo=1",
+        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20211&amp;pageNo=1",
+        "http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20210&amp;pageNo=1"
+    ],
+    [
+        "7,280",
+        "97",
+        "227",
+        "198",
+        "90",
+        "130",
+        "162",
+        "195",
+        "383",
+        "342"
+    ]
+]
+</code></pre></div></div>
+
+<h5 id="python-code">Python Code</h5>
+
+<p><em>Main.py</em></p>
+
+<blockquote>
+  <p>Use Flask Server for POST<br />
+Receive data for json<br />
+Return data for json</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">request</span>
+<span class="kn">import</span> <span class="nn">ulsan</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"POST"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">crawler</span><span class="p">():</span>
+    <span class="n">req_data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">(</span><span class="n">silent</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">check</span> <span class="o">=</span> <span class="n">req_data</span><span class="p">[</span><span class="s">'check'</span><span class="p">]</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">req_data</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">check</span> <span class="o">==</span> <span class="s">'ulsan'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">ulsan</span><span class="o">.</span><span class="n">crawler</span><span class="p">())</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s">'192.168.0.8'</span><span class="p">,</span> <span class="n">threaded</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<p><em>ulsan.py</em></p>
+
+<blockquote>
+  <p>Use BeautifulSoup for html-parse<br />
+Use Requests for get html code</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">crawler</span><span class="p">():</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="p">[[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://www.ulsan.ac.kr/unews/news/notice.aspx?pageNo='</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">+</span><span class="s">'&amp;o=L'</span><span class="p">)</span>
+        <span class="n">html</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">text</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">div</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">'tbody'</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">div</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">'a'</span><span class="p">):</span>
+                <span class="n">href</span> <span class="o">=</span> <span class="n">each</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'href'</span><span class="p">)</span>
+                <span class="n">url</span> <span class="o">=</span> <span class="s">'http://www.ulsan.ac.kr/unews/news/'</span> <span class="o">+</span> <span class="n">href</span>
+                <span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">div</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">'span.view-count'</span><span class="p">):</span>
+                <span class="n">count</span> <span class="o">=</span> <span class="n">each</span><span class="o">.</span><span class="n">text</span>
+                <span class="n">l</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">div</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">'.date'</span><span class="p">):</span>
+                <span class="n">date</span> <span class="o">=</span> <span class="n">each</span><span class="o">.</span><span class="n">text</span>
+                <span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">div</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">'a'</span><span class="p">):</span>
+                <span class="n">title</span> <span class="o">=</span> <span class="n">each</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'title'</span><span class="p">)</span>
+                <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">l</span>
+
+</code></pre></div></div>
+
+<blockquote>
+  <p>이를 이해하기 위해선 홈페이지의 구조를 볼 필요가 있다.</p>
+</blockquote>
+
+<p><br />
+크롬 개발자 도구(F12)를 통해 페이지를 구조를 살펴본다.</p>
+
+<p><img src="/image/Notice_img.png" alt="Notice" /></p>
+
+<p><br />
+Tbody 태그는 tr 태그 10개로 구성되어 있다.</p>
+
+<p><img src="/image/tbody_img.png" alt="Tbody" /></p>
+
+<p><br />
+또 하나의 tr 태그는 td 태그로 이루어져 있으며 class 이름으로 title 이라고 설정되어 있다.</p>
+
+<p><img src="/image/td-title_img.png" alt="td-title" /></p>
+
+<p><br /><br /></p>
+
+<p>사실 Title 속성을 받아오는 방법은 정말 여러가지가 있지만 2가지만 알아보려 한다.</p>
+
+<ol>
+  <li>Select 메소드를 활용</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">div</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">'tbody'</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">div</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">'td.title'</span><span class="p">):</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">each</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ol>
+  <li>findAll 메소드를 활용</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">div</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">'tbody'</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">div</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">'a'</span><span class="p">):</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">each</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'title'</span><span class="p">)</span>
+        <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>두가지 방법은 받아오는 정보가 차이가 있어 정보를 처리하는 방법 또한 조금 다르다.</p>
+
+<blockquote>
+  <p>Url 받아오는 방법<br />
+ Url 은 &lt;a&gt; 태그 안에 href 속성으로 있으므로 get 메소드를 통해 접근해야 한다.</p>
+</blockquote>
+
+<p><br /><br /></p>
+
+<hr />
+
+<blockquote>
+  <p>최종 코드를 다시보면 조금 더 잘 보일것이다.</p>
+</blockquote>
+
+<p>리스트안에 리스트를 4개를 구성했다</p>
+
+<p>속성 값을 받아오는 방법이다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>date</th>
+      <th>url</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>td.title</td>
+      <td>td.date</td>
+      <td>&lt;a&gt; -&gt; href</td>
+      <td>td.count</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>최종적으로 리스트를 반환한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">crawler</span><span class="p">():</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="p">[[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://www.ulsan.ac.kr/unews/news/notice.aspx?pageNo='</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">+</span><span class="s">'&amp;o=L'</span><span class="p">)</span>
+        <span class="n">html</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">text</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">div</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">'tbody'</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">div</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">'a'</span><span class="p">):</span>
+                <span class="n">href</span> <span class="o">=</span> <span class="n">each</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'href'</span><span class="p">)</span>
+                <span class="n">url</span> <span class="o">=</span> <span class="s">'http://www.ulsan.ac.kr/unews/news/'</span> <span class="o">+</span> <span class="n">href</span>
+                <span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">div</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">'td.view-count'</span><span class="p">):</span>
+                <span class="n">count</span> <span class="o">=</span> <span class="n">each</span><span class="o">.</span><span class="n">text</span>
+                <span class="n">l</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">div</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">'td.date'</span><span class="p">):</span>
+                <span class="n">date</span> <span class="o">=</span> <span class="n">each</span><span class="o">.</span><span class="n">text</span>
+                <span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">div</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">'td.title'</span><span class="p">):</span>
+                <span class="n">title</span> <span class="o">=</span> <span class="n">each</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">l</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="결과값-리턴하기">결과값 리턴하기</h3>
+
+<p>이제 크롤링 하는 코드를 봤으니 어플리케이션으로 값을 Response 해줘야 한다</p>
+
+<p>다시 Main 코드를 보자</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"POST"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">crawler</span><span class="p">():</span>
+    <span class="n">req_data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">(</span><span class="n">silent</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">check</span> <span class="o">=</span> <span class="n">req_data</span><span class="p">[</span><span class="s">'check'</span><span class="p">]</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">req_data</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">check</span> <span class="o">==</span> <span class="s">'ulsan'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">ulsan</span><span class="o">.</span><span class="n">crawler</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>여기서 아래를 주목하자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">ulsan</span><span class="o">.</span><span class="n">crawler</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>위의 <em>ulsan.py</em> 파일에서 List 를 반환받았다.</p>
+
+<p>리스트를 다른 코드에서 쉽게 접근하기 위해 json 형태로 반환하여 return 한다.</p>
+
+<p><br /><br /><br />
+결과적으로</p>
+
+<h2 id="request-1">Request</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"check"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ulsan"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="response-1">Response</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="s2">" 2020-1학기 마이크로특화전공(10개 전공) 신청 안내"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"[캠퍼스 리크루팅]한샘 채용설명회"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"외국인 유학생 지원 동아리 HOW.U 8기 모집"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"(현재 진행중!)2020년도 상반기 공채대비 입사서류 1:1 컨설팅"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"(선거연수원)2020년 상반기 선거·정치제도 개선을 위한 논문 공모 안내"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"[창업지원단] 제3회 U2A 창업경진대회"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"[모집] 2019-겨울학기 UOU 스터디그룹 모집 안내"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"★방학 마지막 소규모 직무분석 프로그램 ★  참여자 모집"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"LINC+사업단 계약직원 채용"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"산학국책지원팀 계약직원 채용"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"2019.12.31"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2020.01.10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2020.01.10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2020.01.10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2020.01.10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2020.01.09"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2020.01.09"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2020.01.08"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2020.01.08"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2020.01.07"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20194&amp;pageNo=1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20219&amp;pageNo=1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20218&amp;pageNo=1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20217&amp;pageNo=1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20216&amp;pageNo=1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20215&amp;pageNo=1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20214&amp;pageNo=1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20212&amp;pageNo=1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20211&amp;pageNo=1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"http://www.ulsan.ac.kr/unews/news/notice.aspx?o=R&amp;a_no=20210&amp;pageNo=1"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="p">[</span><span class="s2">"7,280"</span><span class="p">,</span><span class="w"> </span><span class="s2">"97"</span><span class="p">,</span><span class="w"> </span><span class="s2">"227"</span><span class="p">,</span><span class="w"> </span><span class="s2">"198"</span><span class="p">,</span><span class="w"> </span><span class="s2">"90"</span><span class="p">,</span><span class="w"> </span><span class="s2">"130"</span><span class="p">,</span><span class="w"> </span><span class="s2">"162"</span><span class="p">,</span><span class="w"> </span><span class="s2">"195"</span><span class="p">,</span><span class="w"> </span><span class="s2">"383"</span><span class="p">,</span><span class="w"> </span><span class="s2">"342"</span><span class="p">]</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /><br /><br /></p>
+
+<hr />
+
+<h2 id="application">Application</h2>
+
+<p>이제 Request 를 보내고 결과값을 받아와 사용자에게 보여주는 Application 차례이다.</p>
+
+<p>먼저 결과물 사진을 보자</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>1. 시작화면</th>
+      <th>2. Picker 클릭</th>
+      <th>3. 불러오기 클릭</th>
+      <th>4. 공지사항 클릭</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="image/App_1.jpg" /></td>
+      <td><img src="image/App_4.jpg" /></td>
+      <td><img src="image/App_2.jpg" /></td>
+      <td><img src="image/App_3.jpg" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>직접 UI 를 해본 것이 처음이라 Layout 을 관리함에 있어서도 어려움이 많았다.</p>
+</blockquote>
+
+<p><br /></p>
+
+<p>예를들어 3번째 불러오기 클릭 버튼 시 나오는 화면의 코드를 간단히 가져와 보겠다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">Text</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">item</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">subject</span><span class="p">[</span><span class="nx">i</span><span class="p">]}</span><span class="o">&lt;</span><span class="sr">/Text</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="nx">View</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">row</span><span class="p">}</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">Text</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">b_count</span><span class="p">}</span><span class="o">&gt;</span>     <span class="err">조회수</span><span class="p">:</span> <span class="p">{</span><span class="nx">count</span><span class="p">[</span><span class="nx">i</span><span class="p">]}</span>          <span class="o">&lt;</span><span class="sr">/Text</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">Text</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">b_date</span><span class="p">}</span><span class="o">&gt;</span><span class="err">게시일자</span><span class="p">:</span> <span class="p">{</span><span class="nx">date</span><span class="p">[</span><span class="nx">i</span><span class="p">]}</span><span class="o">&lt;</span><span class="sr">/Text</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/View</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<p>조회수 앞에서 보이는 띄어쓰기는</p>
+
+<pre><code class="language-javscript">&amp;nbsp;
+</code></pre>
+
+<p>를 통해 구현해도 되지만 Layout 을 잘 조절한다면 충분히 해결할 수 있는 문제이다.<br />
+또 태블릿 PC 같은 환경에서도 쉽게 적용이 되게 하려면 Layout 구성을 함으로 써 배치를 하는 것이 이상적이다.</p>
+
+<p><br /><br /></p>
+
+<h3 id="주요-코드">주요 코드</h3>
+
+<p>아래는 공지사항 불러오기 버튼을 클릭했을 때 실행되는 메소드이다.</p>
+
+<p>디폴트 값을 설정해 주지 않으면 오류가 났던 것으로 기억한다.</p>
+
+<p>Picker 를 통해 받아온 value 값을 check 인자로 Post 방식을 통해 Request 한다.</p>
+
+<p>전달되면 서버에서 크롤링을 진행한 뒤 json 파일을 Response 받는다.</p>
+
+<p>json 파일을 해석하는 부분이 then(response) 이다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">onRequestButtonClicked</span><span class="p">(</span><span class="nx">value</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">value</span> <span class="o">==</span> <span class="kc">null</span><span class="p">){</span>
+      <span class="nx">value</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">ulsan</span><span class="dl">'</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">,{</span>
+      <span class="na">check</span><span class="p">:</span> <span class="nx">value</span><span class="p">,</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="na">subject</span><span class="p">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="na">date</span><span class="p">:</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="na">url</span><span class="p">:</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="na">count</span><span class="p">:</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="mi">3</span><span class="p">]}</span> <span class="p">))</span>
+    <span class="nx">Toast</span><span class="p">.</span><span class="nx">show</span><span class="p">(</span><span class="dl">'</span><span class="s1">로딩중입니다.</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /><br /><br /></p>
+
+<hr />
+
+<h2 id="구글-플레이스토어-업로드upload-google-play-store">구글 플레이스토어 업로드(Upload Google Play Store)</h2>
+
+<p><img src="/image/play_1.png" alt="play_store" /></p>
+
+<p><img src="/image/play_2.png" alt="play_store" /></p>
+
+<p><br /><br /><br /></p>
+
+<hr />
+
+<h2 id="향후-과제-future-challenges">향후 과제 (Future challenges)</h2>
+
+<h3 id="추천-버튼">추천 버튼</h3>
+
+<p>단순히 조회수 만으로 학생들이 선호한다고 판단할 수 없다.</p>
+
+<p>학생들이 직접 추천 버튼을 누름으로써 학생들을 위한 더 좋은 기회가 제공됐으면 한다.</p>
+
+<h2 id="댓글-기능">댓글 기능</h2>
+
+<p>각각의 게시글에 학생들이 댓글을 작성함으로써 다른 학생들과 혹은 담당자와 소통할 수 있다.</p>
+:ET

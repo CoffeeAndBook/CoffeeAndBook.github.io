@@ -1,0 +1,102 @@
+I"d	<div class="intro-animation">
+<section class="explanation">
+    <h1 class="intro">
+    Suwan Jang,
+    
+    <!-- <h1 class="intro">a Undergraduate Student at -->
+        <div class="intro-link">
+            <a class="transition" href="http://ulsan.ac.kr/" target="_blank">
+                Ulsan_Uni
+            </a>
+            <div class="underline-mask transition"></div>
+            <div class="underline"></div>
+        </div>.
+    </h1>
+    <!-- <h2 class="intro">'장수완' 울산대학교 대학생,,, 전기전자공학, IT융합전공</h2> -->
+</section>
+</div>
+<div class="loading-animation">
+<section class="resume">
+    <div class="resume-info">
+        <p class="second-label">
+            <span class="label-emoji">
+                &#x1F64B;
+            </span>    
+            &nbsp; I've worked for
+        </p>
+    </div>
+    <ul>
+
+        <!--
+  <li class="workplace transition">
+    
+</li>
+
+<li class="workplace transition">
+    
+</li>
+-->
+<li class="workplace transition">
+    
+    <p class="workplace-name">
+        Ulsan_Uni
+    </p>
+    <div class="work-info">
+        <p>
+            Undergraduate
+        </p>
+        <p class="work-sub-info">
+            2015. MAR ~
+        </p>
+    </div>
+    
+</li>
+
+
+    </ul>
+    
+    <a href="/project" class="transition"> 
+        <div class="view-all-projects transition">
+            View Selected Projects
+            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><style>.cls-1{fill:none;}</style></defs><path d="M7.2,17.9l6.1-6.1L7.2,5.6,9,3.8l8,8-8,8Z" /><path class="cls-1" d="M.1-.2h24v24H.1Z" /></svg>
+        </div>
+    </a>
+
+</section>
+
+
+<section class="skill">
+    <div class="resume-info">
+        <p class="second-label">
+            <span class="label-emoji">
+                &#x1F4AA;
+            </span>
+            &nbsp; Available My Skill &amp; Role
+        </p>
+    </div>    
+    <ul>
+        
+            <li class="skill_name">
+                React Native
+            </li>
+        
+            <li class="skill_name">
+                Android
+            </li>
+        
+            <li class="skill_name">
+                Flask
+            </li>
+        
+            <li class="skill_name">
+                PyQt
+            </li>
+        
+            <li class="skill_name">
+                Deep Learning
+            </li>
+        
+    </ul>
+</section>
+</div>
+:ET

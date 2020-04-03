@@ -1,0 +1,318 @@
+I"d<h1 id="라즈베리파이">라즈베리파이</h1>
+
+<blockquote>
+  <p>라즈베리파이는 위키백과에 명시되어 있다. 싱글보드 <em>컴퓨터</em> 이다.</p>
+</blockquote>
+
+<p>우리가 아는 컴퓨터는 다음과 같이 생겼다.</p>
+
+<p><img src="image/computer.jpg" alt="컴퓨터" /></p>
+
+<p>그런데 라즈베리파이는 다음과 같이 생겼다.</p>
+
+<p><img src="image/raspberry_pi.jpg" alt="라즈베리파이" /></p>
+
+<p>라즈베리파이 스펙을 간단히 보고 넘어가자<br />
+<em>상세하게 CPU, GPU가 어떤 종류인지 많이 자료가 있으니 간단히 말하겠다.</em></p>
+
+<ol>
+  <li>
+    <p>CPU 1.5GHZ</p>
+  </li>
+  <li>
+    <p>GPU</p>
+  </li>
+  <li>
+    <p>2.4 GHz and 5 GHz wireless LAN</p>
+  </li>
+  <li>
+    <p>RAM 1GB or 2GB or 4GB</p>
+  </li>
+  <li>
+    <p>Bluetooth</p>
+  </li>
+  <li>
+    <p>GPIO 40</p>
+  </li>
+  <li>
+    <p>micro SD</p>
+  </li>
+  <li>
+    <p>USB 2.0 X 2, 3.0 X 2</p>
+  </li>
+</ol>
+
+<p>이렇게 8가지가 있다.</p>
+
+<p>간단히 비교를 위해서<br />
+‘macbook air 2015 spec’ 이라고 검색해보았다.</p>
+
+<ol>
+  <li>
+    <p>CPU 1.6GHZ</p>
+  </li>
+  <li>
+    <p>GPU intel HD Graphics 6000</p>
+  </li>
+  <li>
+    <p>8GB RAM</p>
+  </li>
+  <li>
+    <p>128GB PCIe storage</p>
+  </li>
+</ol>
+
+<p>뭐 간단히 이정도로 줄이겠다.</p>
+
+<p>비교해보고 싶었던 것은 CPU 와 RAM 이었다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>라즈베리파이</th>
+      <th>MacBook 15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CPU</td>
+      <td>1.5 GHz</td>
+      <td>1.6 GHz</td>
+    </tr>
+    <tr>
+      <td>RAM</td>
+      <td>4GB(최대)</td>
+      <td>8GB</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>나는 컴퓨터에 대해 사실 잘 모른다.</p>
+
+<p>그런데 스펙만 봤을 때 비벼볼 만 해 보인다!</p>
+
+<p><br /><br /><br /><br /></p>
+
+<hr />
+
+<h1 id="컴퓨터로-만들기">컴퓨터로 만들기</h1>
+
+<p><br /></p>
+
+<p><img src="image/raspberry_pi.jpg" width="30%" /></p>
+
+<p><br /><br /></p>
+
+<p>지금의 라즈베리파이는 컴퓨터의 본체만 있다고 생각하면 이해하기 쉽다.</p>
+
+<p>컴퓨터를 조립해 본 사람이 있을지 모르겠지만</p>
+
+<p>컴퓨터를 조립할 때 꼭 사야하는 구성요소는 다음과 같다</p>
+
+<ol>
+  <li>CPU</li>
+  <li>메인보드</li>
+  <li>메모리(램)</li>
+  <li>저장 장치(HDD/SDD)</li>
+  <li>그래픽카드(필수X)</li>
+  <li>파워서플라이</li>
+</ol>
+
+<p>지금 이 모든 게 라즈베리파이에 갖춰져 있다.</p>
+
+<p>하지만 우리가 아는 컴퓨터는 이렇게 생겼다.<br />
+<img src="image/computer.jpg" width="30%" /></p>
+
+<p><br /><br /></p>
+
+<h4 id="모니터-마우스-키보드가-필요하다">모니터, 마우스, 키보드가 필요하다.</h4>
+
+<p><img src="image/rasp_compu.jpg" width="50%" /></p>
+
+<p><br /></p>
+
+<h4 id="os가-필요하다">OS가 필요하다.</h4>
+
+<p>컴퓨터를 처음 조립하거나, (운영체제 미포함)노트북 구매시 OS를 설치해야 한다.</p>
+
+<p>흔히 사용하는 OS는 윈도우이다.</p>
+
+<p>윈도우의 장점을 찾아보니 다음과 같다.</p>
+
+<ol>
+  <li>
+    <p>한번에 여러 프로그램을 열어 놓고 수행 가능하다.</p>
+  </li>
+  <li>
+    <p>대부분이 그림형태인 아이콘으로 이루어지는 GUI환경을 제공한다.</p>
+  </li>
+  <li>
+    <p>명령의 입력이 아닌 사용자의 행동(클릭)으로 여러 기능들이 수행된다.</p>
+  </li>
+  <li>
+    <p>window용 프로그램들 사이에는 일관성이 있어 사용자가 적응하기 쉽다.</p>
+  </li>
+  <li>
+    <p>메로리 제한이 적다.</p>
+  </li>
+  <li>
+    <p>도움말 기능이 풍부해 별도의 메뉴얼이 필요없다.</p>
+  </li>
+</ol>
+
+<p>이를 정리하면 <em>사용자의 편리</em> 에 모든 초점을 맞추고 있음을 알 수 있다.</p>
+
+<p>그래서 사용 1순위는 Windows 인 것이다.</p>
+
+<h5 id="그런데-라즈베리파이는">그런데 라즈베리파이는</h5>
+
+<blockquote>
+  <p>리눅스를 사용한다.</p>
+</blockquote>
+
+<p>리눅스의 장점은 다음과 같다.</p>
+
+<ol>
+  <li>
+    <p>높은 신뢰도</p>
+  </li>
+  <li>
+    <p>성능</p>
+  </li>
+  <li>
+    <p>기술지원</p>
+  </li>
+  <li>
+    <p>구축 비용</p>
+  </li>
+</ol>
+
+<p>내 생각에 많은 싱글보드 컴퓨터(라즈베리파이, 팅커보드, 오드로이드, 라떼판다 등)가 리눅스 기반의 운영체제를 사용하는 가장 큰 이유는 4번의 구축 비용이라고 생각한다. 윈도우 운영체제를 공식홈페이지에서 구매하기 위해선 가격이 208,000원이다.</p>
+
+<p>반면에 리눅스는 무료이다.</p>
+
+<p><br /><br /></p>
+
+<h4 id="라즈비안">라즈비안</h4>
+
+<p>라즈베리파이에서 가장 많이 사용하는 운영체제이다.<br />
+당연히 리눅스 기반이다.</p>
+
+<p><img src="image/raspbian.jpeg" width="40%" /></p>
+
+<p><br /></p>
+
+<p><a href="https://www.raspberrypi.org/">라즈베리파이 공식 홈페이지</a>에서 다운 받을 수 있으며 어떤 걸 받아야할지 모르는 경우 <a href="https://downloads.raspberrypi.org/raspbian_latest">링크</a>를 클릭하면 된다.</p>
+
+<p>다운이 완료되면 Etcher 라는 SD Card에 이미지를 Writing 할 수 있는 소프트웨어를 받아야합니다.</p>
+
+<p><a href="https://github.com/balena-io/etcher/releases/download/v1.5.70/balenaEtcher-Portable-1.5.70.exe">Etcher</a>를 클릭하여 다운로드합니다.</p>
+
+<p>실행하면 다음과 같은 화면을 볼 수 있는데</p>
+
+<p><img src="image/etcher.jpg" /></p>
+
+<ol>
+  <li>
+    <p>이미지 선택(라즈비안)</p>
+  </li>
+  <li>
+    <p>SD 카드 선택</p>
+  </li>
+  <li>
+    <p>Flash</p>
+  </li>
+</ol>
+
+<p>3단계를 실행하고 기다리면 SD 카드에 OS가 Writing 된 것이다.</p>
+
+<p><br /></p>
+
+<h4 id="그런데-여기서-모니터가-없는-경우">그런데 여기서 모니터가 없는 경우</h4>
+
+<p>부팅을 하기전에 설정해줘야 하는 사항이 있다.</p>
+
+<p>아래를 따라하자</p>
+
+<p><br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>1. 취소 누르기!</th>
+      <th>2. 확인!</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="image/1.PNG" alt="img" /></td>
+      <td><img src="image/2.PNG" alt="img" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>3. boot 폴더 클릭</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="image/3.PNG" alt="img" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>4. 보기 -&gt; 파일 확장명 체크</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="image/5.PNG" alt="img" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>5. 새로 만들기</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="image/6.PNG" alt="img" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>6. 파일명 ssh (확장자명 지우기)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="image/7.PNG" alt="img" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /><br /></p>
+
+<p>이제 라즈베리파이에 전원을 넣고 통신을 해보자.</p>
+:ET

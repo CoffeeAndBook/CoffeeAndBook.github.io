@@ -1,0 +1,34 @@
+I"�<h1 id="timer-project">Timer Project</h1>
+
+<h2 id="idea">Idea</h2>
+
+<h2 id="user-scenario">user scenario</h2>
+
+<ol>
+  <li>어플을 실행한다</li>
+  <li>시간대별로 할 일을 작성한다</li>
+  <li>시작되고 끝이 날 때마다 알림 메시지를 준다</li>
+  <li>끝이날 때 짧은 후기를 작성하게 한다</li>
+</ol>
+
+<ul>
+  <li>데이터베이스 연동</li>
+</ul>
+
+<h2 id="2019년-12월-26일">2019년 12월 26일</h2>
+
+<p>사용자 UI를 정말 간단하게 제작해보았다.</p>
+
+<p>Add 버튼을 누르면 다음과 같은 모듈이 생성된다.</p>
+<ol>
+  <li>QLabel</li>
+  <li>QTimeEdit</li>
+  <li>QTextEdit</li>
+</ol>
+
+<h2 id="개선해야-할-사항">개선해야 할 사항</h2>
+<p>Fix버튼을 누르면 지금 선택하는 것들이 비활성화 되어야 하고 알람이 설정되어야 한다</p>
+
+<h3 id="결과물-사진">결과물 사진</h3>
+<p><img src="img/2019-12-26.png" alt="2019-12-26" /></p>
+:ET

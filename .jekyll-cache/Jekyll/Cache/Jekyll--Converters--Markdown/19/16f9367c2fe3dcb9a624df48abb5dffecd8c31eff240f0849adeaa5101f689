@@ -1,0 +1,106 @@
+I"�<h1 id="todo">Todo</h1>
+
+<h5 id="소확행-다-적자">소확행.. 다 적자</h5>
+
+<ul class="task-list">
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />랩미팅 11시</p>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />박재현 교수님 스터디 진행 보고 13시</p>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />엄마 만나기 14시</p>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />영어공부 30분 미드</p>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />백준 문제풀기 30분</p>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />독서 30분(에이트)</p>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />블로그 다시 만들기..</p>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />생각하기 -&gt; Blog 포스팅</p>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />물 2L 마시기</p>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />운동 30분</p>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />옷 주문하기</p>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />커밋하기!!</p>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />React-Native Python data transform 구현하기 -&gt; 알람</p>
+  </li>
+  <li class="task-list-item">
+    <p><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />How to input emoji in Atom Editor</p>
+  </li>
+</ul>
+
+<h2 id="tomorrow-todo">Tomorrow Todo</h2>
+
+<ul>
+  <li>
+    <p>졸업식 현수막 제작하기</p>
+  </li>
+  <li>
+    <p>책 반납하기!!!!!!!!(케라스 창시자에게 배우는 딥러닝, 나는 LINE 개발자입니다.)</p>
+  </li>
+</ul>
+
+<h2 id="what-i-am-thankful-for">what i am thankful for</h2>
+
+<ol>
+  <li>
+    <p>8박 10일동안 유럽 다녀와서 기념품 챙겨주신 재헌이형 감사합니다!~~</p>
+  </li>
+  <li>
+    <p>보증금 마련해주신 엄마 감사합니다.</p>
+  </li>
+  <li>
+    <p>다이어트 자극을 주신.. 핏 멋진 모델형님들 감사합니다..</p>
+  </li>
+</ol>
+
+<h1 id="til">TIL</h1>
+
+<h2 id="못한-변명">못한 변명..</h2>
+
+<p>토가 Bus Project 에 동영상 스트리밍 하는 방식을 바꿔 덜라고 했다. 예상치 못한 내용이었지만 먼저 해야겠다는 생각이 들어 Todo 를 무시하고 연구실 과제를 밤 늦게까지 했다.</p>
+
+<h2 id="배운점">배운점</h2>
+
+<p>PC에서 ODROID로 이미지를 전송함과 동시에 ODROID에서 web streaming server를 만들어 이미지를 스트리밍 해야했었다.</p>
+
+<p>단순히 이미지를 전송하고 가지고 있는 이미지를 통해 스트리밍 하는것은 문제가 없었으나 ‘동시에’ 를 진행하니 오류가 났다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zmq.error.ZMQError: Operation cannot be accomplished in current state
+</code></pre></div></div>
+
+<p>Socket 통신을 하는데 imagezmq 라는 라이브러리를 사용했다. 통신을 할 때 REQ(request)가 있으면 RES(response)가 있어야한다.</p>
+
+<p>하지만 나는 이를 무시하고 REQ만을 주고 있었다.</p>
+
+<p>당연히 위의 오류를 복사헤서 구글에 검색해보았다.</p>
+
+<p><em>대충 직역하면 동작은 현재상태에서 진행할 수 없다.</em></p>
+
+<p>현재상태라는 의미에 대해 조금 더 생각하고 구글링 한 결과를 조금 더 잘 읽었다면 쉽게 해결했을 문제라는 걸 느겼다.</p>
+
+<p>단순히 코드 한줄을 추가하니 해결되었다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>image_hub.send_reply(b'OK')
+</code></pre></div></div>
+
+<p>영어에 대해 너무 겁먹지 말고 의미를 생각해보고 천천히 일을 진행하자!!</p>
+:ET

@@ -1,0 +1,19 @@
+I"�<h1 id="1-todolist">1. TodoList</h1>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />버스 프로젝트 어플 끝내기</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />버스 프로젝트 커밋 하기</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />깃헙 블로그 시작</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />유튜브 자기계빨 30분 ㅋㅋ</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />독서 30분</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />부모님께 전화</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />물 2L</li>
+</ul>
+
+<h1 id="2-time-planning">2. Time Planning</h1>
+
+<ul>
+  <li>13:20 ~ 14:20   점심</li>
+  <li>14:20 ~ 16:10   자연회 탐방</li>
+  <li>16:10 ~ 17:10   코딩연습</li>
+</ul>
+:ET
